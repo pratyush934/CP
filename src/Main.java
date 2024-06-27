@@ -1,7 +1,9 @@
-import java.util.*;
 import java.io.*;
+import java.util.*;
+import static java.lang.Math.*;
 
 public class Main{
+
     static class FastReader{
         BufferedReader br;
         StringTokenizer st;
@@ -57,6 +59,20 @@ public class Main{
             bw.close();
         }
     }
+    static int[] buildArray(int n) {
+
+        FastReader in = new FastReader();
+        try {
+        int arr[] = new int[n];
+        for(int i=0; i<n; i++) {
+            arr[i] = in.nextInt();
+        }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return arr;
+    }
+
     public static void main(String[] args) {
         try {
             FastReader in=new FastReader();
@@ -69,10 +85,17 @@ public class Main{
                 int a = in.nextInt();
                 int b = in.nextInt();
 
-                out.println(a+b);
+
+                String str = in.nextLine();
+
+                out.println(abs(a+b));
+                out.println(str);
+
+
             }
             out.close();
         } catch (Exception e) {
+            e.printStackTrace();
             return;
         }
     }
