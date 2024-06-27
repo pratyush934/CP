@@ -1,44 +1,52 @@
 import java.io.*;
 import java.util.*;
+
 import static java.lang.Math.*;
 
-public class Main{
+public class Main {
 
-    static class FastReader{
+    static class FastReader {
         BufferedReader br;
         StringTokenizer st;
-        public FastReader(){
-            br=new BufferedReader(new InputStreamReader(System.in));
+
+        public FastReader() {
+            br = new BufferedReader(new InputStreamReader(System.in));
         }
-        String next(){
-            while(st==null || !st.hasMoreTokens()){
+
+        String next() {
+            while (st == null || !st.hasMoreTokens()) {
                 try {
-                    st=new StringTokenizer(br.readLine());
+                    st = new StringTokenizer(br.readLine());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
             return st.nextToken();
         }
-        int nextInt(){
+
+        int nextInt() {
             return Integer.parseInt(next());
         }
-        long nextLong(){
+
+        long nextLong() {
             return Long.parseLong(next());
         }
-        double nextDouble(){
+
+        double nextDouble() {
             return Double.parseDouble(next());
         }
-        String nextLine(){
-            String str="";
+
+        String nextLine() {
+            String str = "";
             try {
-                str=br.readLine().trim();
+                str = br.readLine().trim();
             } catch (Exception e) {
                 e.printStackTrace();
             }
             return str;
         }
     }
+
     static class FastWriter {
         private final BufferedWriter bw;
 
@@ -59,14 +67,15 @@ public class Main{
             bw.close();
         }
     }
+
     static int[] buildArray(int n) {
 
         FastReader in = new FastReader();
-        try {
         int arr[] = new int[n];
-        for(int i=0; i<n; i++) {
-            arr[i] = in.nextInt();
-        }
+        try {
+            for (int i = 0; i < n; i++) {
+                arr[i] = in.nextInt();
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -74,29 +83,26 @@ public class Main{
     }
 
     public static void main(String[] args) {
+
         try {
-            FastReader in=new FastReader();
+            FastReader in = new FastReader();
             FastWriter out = new FastWriter();
-            int testCases=in.nextInt();
+            int testCases = in.nextInt();
 
-            while(testCases-- > 0){
+            while (testCases-- > 0) {
                 // write code here
-
                 int a = in.nextInt();
                 int b = in.nextInt();
 
-
                 String str = in.nextLine();
 
-                out.println(abs(a+b));
+                out.println(a*b);
                 out.println(str);
-
-
             }
             out.close();
         } catch (Exception e) {
             e.printStackTrace();
-            return;
+
         }
     }
 }
