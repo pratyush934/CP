@@ -171,9 +171,8 @@ public class MacroTemplates {
             while (T-- > 0) {
                 // code
 
-                int a = in.nextInt();
-                int b = in.nextInt();
-                out.println(a + b);
+                
+                                
 
             }
             out.close();
