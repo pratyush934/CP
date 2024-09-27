@@ -17,7 +17,7 @@ import java.math.*;
 public class MacroTemplates {
 
     static class FastScanner {
-        //I don't understand how this works lmao
+        // I don't understand how this works lmao
         private int BS = 1 << 16;
         private char NC = (char) 0;
         private byte[] buf = new byte[BS];
@@ -45,7 +45,8 @@ public class MacroTemplates {
                 } catch (Exception e) {
                     return NC;
                 }
-                if (size == -1) return NC;
+                if (size == -1)
+                    return NC;
                 bId = 0;
             }
             return (char) buf[bId++];
@@ -74,9 +75,11 @@ public class MacroTemplates {
         public long nextLong() {
             cnt = 1;
             boolean neg = false;
-            if (c == NC) c = getChar();
+            if (c == NC)
+                c = getChar();
             for (; (c < '0' || c > '9'); c = getChar()) {
-                if (c == '-') neg = true;
+                if (c == '-')
+                    neg = true;
             }
             long res = 0;
             for (; c >= '0' && c <= '9'; c = getChar()) {
@@ -101,7 +104,8 @@ public class MacroTemplates {
 
         public String next() {
             StringBuilder res = new StringBuilder();
-            while (c <= 32) c = getChar();
+            while (c <= 32)
+                c = getChar();
             while (c > 32) {
                 res.append(c);
                 c = getChar();
@@ -111,7 +115,8 @@ public class MacroTemplates {
 
         public String nextLine() {
             StringBuilder res = new StringBuilder();
-            while (c <= 32) c = getChar();
+            while (c <= 32)
+                c = getChar();
             while (c != '\n') {
                 res.append(c);
                 c = getChar();
@@ -120,11 +125,14 @@ public class MacroTemplates {
         }
 
         public boolean hasNext() {
-            if (c > 32) return true;
+            if (c > 32)
+                return true;
             while (true) {
                 c = getChar();
-                if (c == NC) return false;
-                else if (c > 32) return true;
+                if (c == NC)
+                    return false;
+                else if (c > 32)
+                    return true;
             }
         }
     }
@@ -150,31 +158,28 @@ public class MacroTemplates {
         }
     }
 
+    @SuppressWarnings("CallToPrintStackTrace")
     public static void main(String[] hi) throws Exception {
 
-         try {
+        try {
 
-             FastScanner in = new FastScanner();
-             FastOutput out = new FastOutput();
+            FastScanner in = new FastScanner();
+            FastOutput out = new FastOutput();
 
-             int T = in.nextInt();
+            int T = in.nextInt();
 
-             while(T-- > 0) {
-                 //code
-                 int a = in.nextInt();
-                 int b = in.nextInt();
+            while (T-- > 0) {
+                // code
 
-                 String str = in.nextLine();
+                int a = in.nextInt();
+                int b = in.nextInt();
+                out.println(a + b);
 
-                 out.println(a+b);
-                 out.println(str);
-             }
-
-             out.close();
-
-         } catch (Exception e) {
-             e.printStackTrace();
-         }
+            }
+            out.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static int[] readArr(int N, BufferedReader infile, StringTokenizer st) throws Exception {
@@ -186,50 +191,54 @@ public class MacroTemplates {
     }
 
     public static void print(int[] arr) {
-        //for debugging only
+        // for debugging only
         for (int x : arr)
             out.print(x + " ");
         out.println();
     }
 
-    //input shenanigans
-      /*
-         Random stuff to try when stuck:
-            -if it's 2C then it's dp
-            -for combo/probability problems, expand the given form we're interested in
-            -make everything the same then build an answer (constructive, make everything 0 then do something)
-            -something appears in parts of 2 --> model as graph
-            -assume a greedy then try to show why it works
-            -find way to simplify into one variable if multiple exist
-            -treat it like fmc (note any passing thoughts/algo that could be used so you can revisit them)
-            -find lower and upper bounds on answer
-            -figure out what ur trying to find and isolate it
-            -see what observations you have and come up with more continuations
-            -work backwards (in constructive, go from the goal to the start)
-            -turn into prefix/suffix sum argument (often works if problem revolves around adjacent array elements)
-            -instead of solving for answer, try solving for complement (ex, find n-(min) instead of max)
-            -draw something
-            -simulate a process
-            -dont implement something unless if ur fairly confident its correct
-            -after 3 bad submissions move on to next problem if applicable
-            -do something instead of nothing and stay organized
-            -write stuff down
-         Random stuff to check when wa:
-            -if code is way too long/cancer then reassess
-            -switched N/M
-            -int overflow
-            -switched variables
-            -wrong MOD
-            -hardcoded edge case incorrectly
-         Random stuff to check when tle:
-            -continue instead of break
-            -condition in for/while loop bad
-         Random stuff to check when rte:
-            -switched N/M
-            -long to int/int overflow
-            -division by 0
-            -edge case for empty list/data structure/N=1
-      */
+    // input shenanigans
+    /*
+     * Random stuff to try when stuck:
+     * -if it's 2C then it's dp
+     * -for combo/probability problems, expand the given form we're interested in
+     * -make everything the same then build an answer (constructive, make everything
+     * 0 then do something)
+     * -something appears in parts of 2 --> model as graph
+     * -assume a greedy then try to show why it works
+     * -find way to simplify into one variable if multiple exist
+     * -treat it like fmc (note any passing thoughts/algo that could be used so you
+     * can revisit them)
+     * -find lower and upper bounds on answer
+     * -figure out what ur trying to find and isolate it
+     * -see what observations you have and come up with more continuations
+     * -work backwards (in constructive, go from the goal to the start)
+     * -turn into prefix/suffix sum argument (often works if problem revolves around
+     * adjacent array elements)
+     * -instead of solving for answer, try solving for complement (ex, find n-(min)
+     * instead of max)
+     * -draw something
+     * -simulate a process
+     * -dont implement something unless if ur fairly confident its correct
+     * -after 3 bad submissions move on to next problem if applicable
+     * -do something instead of nothing and stay organized
+     * -write stuff down
+     * Random stuff to check when wa:
+     * -if code is way too long/cancer then reassess
+     * -switched N/M
+     * -int overflow
+     * -switched variables
+     * -wrong MOD
+     * -hardcoded edge case incorrectly
+     * Random stuff to check when tle:
+     * -continue instead of break
+     * -condition in for/while loop bad
+     * Random stuff to check when rte:
+     * -switched N/M
+     * -long to int/int overflow
+     * -division by 0
+     * -edge case for empty list/data structure/N=1
+     */
     public static long[] readArr2(int N, BufferedReader infile, StringTokenizer st) throws Exception {
         long[] arr = new long[N];
         st = new StringTokenizer(infile.readLine());
@@ -239,12 +248,16 @@ public class MacroTemplates {
     }
 
     public static boolean isPrime(long n) {
-        if (n < 2) return false;
-        if (n == 2 || n == 3) return true;
-        if (n % 2 == 0 || n % 3 == 0) return false;
+        if (n < 2)
+            return false;
+        if (n == 2 || n == 3)
+            return true;
+        if (n % 2 == 0 || n % 3 == 0)
+            return false;
         long sqrtN = (long) Math.sqrt(n) + 1;
         for (long i = 6L; i <= sqrtN; i += 6) {
-            if (n % (i - 1) == 0 || n % (i + 1) == 0) return false;
+            if (n % (i - 1) == 0 || n % (i + 1) == 0)
+                return false;
         }
         return true;
     }
@@ -269,20 +282,20 @@ public class MacroTemplates {
             result -= result / n;
         return result;
         /*
-        find phi(i) from 1 to N fast
-        O(N*loglogN)
-        long[] arr = new long[N+1];
-        for(int i=1; i <= N; i++)
-            arr[i] = i;
-        for(int v=2; v <= N; v++)
-            if(arr[v] == v)
-                for(int a=v; a <= N; a+=v)
-                    arr[a] -= arr[a]/v;
+         * find phi(i) from 1 to N fast
+         * O(N*loglogN)
+         * long[] arr = new long[N+1];
+         * for(int i=1; i <= N; i++)
+         * arr[i] = i;
+         * for(int v=2; v <= N; v++)
+         * if(arr[v] == v)
+         * for(int a=v; a <= N; a+=v)
+         * arr[a] -= arr[a]/v;
          */
     }
 
     public static ArrayList<Integer> findDiv(int N) {
-        //gens all divisors of N
+        // gens all divisors of N
         ArrayList<Integer> ls1 = new ArrayList<Integer>();
         ArrayList<Integer> ls2 = new ArrayList<Integer>();
         for (int i = 1; i <= (int) (Math.sqrt(N) + 0.00000001); i++)
@@ -298,8 +311,8 @@ public class MacroTemplates {
     }
 
     public static void sort(int[] arr) {
-        //because Arrays.sort() uses quicksort which is dumb
-        //Collections.sort() uses merge sort
+        // because Arrays.sort() uses quicksort which is dumb
+        // Collections.sort() uses merge sort
         ArrayList<Integer> ls = new ArrayList<Integer>();
         for (int x : arr)
             ls.add(x);
@@ -309,7 +322,7 @@ public class MacroTemplates {
     }
 
     public static long power(long x, long y, long p) {
-        //0^0 = 1
+        // 0^0 = 1
         long res = 1L;
         x = x % p;
         while (y > 0) {
@@ -321,9 +334,9 @@ public class MacroTemplates {
         return res;
     }
 
-    //custom multiset (replace with HashMap if needed)
+    // custom multiset (replace with HashMap if needed)
     public static void push(TreeMap<Integer, Integer> map, int k, int v) {
-        //map[k] += v;
+        // map[k] += v;
         if (!map.containsKey(k))
             map.put(k, v);
         else
@@ -331,8 +344,8 @@ public class MacroTemplates {
     }
 
     public static void pull(TreeMap<Integer, Integer> map, int k, int v) {
-        //assumes map[k] >= v
-        //map[k] -= v
+        // assumes map[k] >= v
+        // map[k] -= v
         int lol = map.get(k);
         if (lol == v)
             map.remove(k);
@@ -346,7 +359,7 @@ public class MacroTemplates {
             ls.add(x);
         Collections.sort(ls);
         HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-        int boof = 1; //min value
+        int boof = 1; // min value
         for (int x : ls)
             if (!map.containsKey(x))
                 map.put(x, boof++);
@@ -399,7 +412,7 @@ class DSU {
         }
     }
 
-    //with path compression, no find by rank
+    // with path compression, no find by rank
     public int find(int x) {
         return dsu[x] == x ? x : (dsu[x] = find(dsu[x]));
     }
@@ -419,8 +432,8 @@ class DSU {
 }
 
 class FenwickTree {
-    //Binary Indexed Tree
-    //1 indexed
+    // Binary Indexed Tree
+    // 1 indexed
     public int[] tree;
     public int size;
 
@@ -451,9 +464,9 @@ class FenwickTree {
 }
 
 class SegmentTree {
-    //Tlatoani's segment tree
-    //iterative implementation = low constant runtime factor
-    //range query, non lazy
+    // Tlatoani's segment tree
+    // iterative implementation = low constant runtime factor
+    // range query, non lazy
     final int[] val;
     final int treeFrom;
     final int length;
@@ -462,13 +475,14 @@ class SegmentTree {
         this.treeFrom = treeFrom;
         int length = treeTo - treeFrom + 1;
         int l;
-        for (l = 0; (1 << l) < length; l++) ;
+        for (l = 0; (1 << l) < length; l++)
+            ;
         val = new int[1 << (l + 1)];
         this.length = 1 << l;
     }
 
     public void update(int index, int delta) {
-        //replaces value
+        // replaces value
         int node = index - treeFrom + length;
         val[node] = delta;
         for (node >>= 1; node > 0; node >>= 1)
@@ -476,12 +490,12 @@ class SegmentTree {
     }
 
     public int query(int from, int to) {
-        //inclusive bounds
+        // inclusive bounds
         if (to < from)
-            return 0; //0 or 1?
+            return 0; // 0 or 1?
         from += length - treeFrom;
         to += length - treeFrom + 1;
-        //0 or 1?
+        // 0 or 1?
         int res = 0;
         for (; from + (from & -from) <= to; from += from & -from)
             res = comb(res, val[from / (from & -from)]);
@@ -491,13 +505,13 @@ class SegmentTree {
     }
 
     public int comb(int a, int b) {
-        //change this
+        // change this
         return Math.max(a, b);
     }
 }
 
 class LazySegTree {
-    //definitions
+    // definitions
     private int NULL = -1;
     private int[] tree;
     private int[] lazy;
@@ -506,13 +520,14 @@ class LazySegTree {
     public LazySegTree(int N) {
         length = N;
         int b;
-        for (b = 0; (1 << b) < length; b++) ;
+        for (b = 0; (1 << b) < length; b++)
+            ;
         tree = new int[1 << (b + 1)];
         lazy = new int[1 << (b + 1)];
     }
 
     public int query(int left, int right) {
-        //left and right are 0-indexed
+        // left and right are 0-indexed
         return get(1, 0, length - 1, left, right);
     }
 
@@ -535,7 +550,7 @@ class LazySegTree {
         if (L > R)
             return;
         if (currL == L && currR == R) {
-            //exact covering
+            // exact covering
             tree[v] += delta;
             lazy[v] += delta;
             return;
@@ -548,7 +563,7 @@ class LazySegTree {
     }
 
     private void propagate(int v) {
-        //tree[v] already has lazy[v]
+        // tree[v] already has lazy[v]
         if (lazy[v] == 0)
             return;
         tree[v * 2] += lazy[v];
@@ -564,7 +579,7 @@ class LazySegTree {
 }
 
 class RangeBit {
-    //FenwickTree and RangeBit are faster than LazySegTree by constant factor
+    // FenwickTree and RangeBit are faster than LazySegTree by constant factor
     final int[] value;
     final int[] weightedVal;
 
@@ -633,7 +648,7 @@ class SparseTable {
     }
 
     public int query(int L, int R) {
-        //inclusive, 1 indexed
+        // inclusive, 1 indexed
         L--;
         R--;
         int mexico = log[R - L + 1];
@@ -646,7 +661,7 @@ class LCA {
     public ArrayDeque<Integer>[] edges;
     private int[] enter;
     private int[] exit;
-    private int LOG = 17; //change this
+    private int LOG = 17; // change this
     private int[][] dp;
 
     public LCA(int n, ArrayDeque<Integer>[] edges, int r) {
@@ -657,7 +672,7 @@ class LCA {
         dp = new int[N + 1][LOG];
         this.edges = edges;
         int[] time = new int[1];
-        //change to iterative dfs if N is large
+        // change to iterative dfs if N is large
         dfs(root, 0, time);
         dp[root][0] = 1;
         for (int b = 1; b < LOG; b++)
@@ -694,7 +709,7 @@ class LCA {
 }
 
 class BitSet {
-    private int CONS = 62; //safe
+    private int CONS = 62; // safe
     public long[] sets;
     public int size;
 
@@ -730,7 +745,7 @@ class BitSet {
 }
 
 class MaxFlow {
-    //Dinic with optimizations (see magic array in dfs function)
+    // Dinic with optimizations (see magic array in dfs function)
     public int N, source, sink;
     public ArrayList<Edge>[] edges;
     private int[] depth;
@@ -797,7 +812,7 @@ class MaxFlow {
                 }
             }
         }
-        return 0L;  //no flow
+        return 0L; // no flow
     }
 
     private class Edge {
@@ -822,5 +837,4 @@ class MaxFlow {
     }
 }
 
-
-//use for codeforces!
+// use for codeforces!
