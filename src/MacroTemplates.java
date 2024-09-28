@@ -170,10 +170,12 @@ public class MacroTemplates {
 
             while (T-- > 0) {
                 // code
+                int a = in.nextInt();
+                int b = in.nextInt();
 
-                
-                                
-
+                int c = a + b;
+                out.println(c);
+                String st = new String();
             }
             out.close();
         } catch (Exception e) {
